@@ -1,6 +1,7 @@
 # Flask Web Application Project Documentation
-This repository contains a Flask web application project that includes user authentication, data management, PDF reporting, sorting functionalities, and more.
-Repositori ini berisi proyek aplikasi web Flask yang mencakup otentikasi pengguna, manajemen data, pelaporan PDF, fungsi pengurutan, dan banyak lagi.
+Flask web application project that includes user authentication, data management, PDF reporting, sorting functionalities, and more.
+
+Proyek aplikasi web Flask yang mencakup otentikasi pengguna, manajemen data, pelaporan PDF, fungsi pengurutan, dan banyak lagi.
 
 ## Features
 - User Registration and Login
