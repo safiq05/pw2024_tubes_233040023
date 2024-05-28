@@ -1,0 +1,59 @@
+<!-- admin_page.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<body>
+    <h1>Welcome to the Admin Page</h1>
+    
+    <!-- Insert Data Form -->
+    <h2>Insert Data</h2>
+    <form action="{{ url_for('insert_data') }}" method="post">
+        <!-- Add form fields for inserting data -->
+        <button type="submit">Insert Data</button>
+    </form>
+
+    <!-- Update Data Form -->
+    <h2>Update Data</h2>
+    <form action="{{ url_for('update_data', data_id=1) }}" method="post">
+        <!-- Add form fields for updating data -->
+        <button type="submit">Update Data</button>
+    </form>
+
+    <!-- Delete Data Form -->
+    <h2>Delete Data</h2>
+    <form action="{{ url_for('delete_data', data_id=1) }}" method="post">
+        <!-- Add form fields for deleting data -->
+        <button type="submit">Delete Data</button>
+    </form>
+
+    <!-- Search Data Form with AJAX -->
+    <h2>Search Data</h2>
+    <input type="text" id="search_term" name="search_term" placeholder="Enter search term">
+    <button id="search_btn">Search</button>
+    <div id="search_results"></div>
+
+    <script>
+        document.getElementById('search_btn').addEventListener('click', function() {
+            let searchValue = document.getElementById('search_term').value;
+            fetch('/search', {
+                method: 'POST',
+                body: JSON.stringify({ 'search_term': searchValue }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Process and display search results
+                document.getElementById('search_results').innerText = JSON.stringify(data);
+            });
+        });
+    </script>
+</body>
+</html>
